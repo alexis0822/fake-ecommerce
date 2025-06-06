@@ -1,0 +1,258 @@
+/* Modern CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --background-color: #f8f9fa;
+  --text-color: #2c3e50;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header Styles */
+header {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.cart-icon:hover {
+  background-color: var(--background-color);
+}
+
+/* Products Grid */
+.products {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.product-card p {
+  color: #2c3e50;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.product-card button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.product-card button:hover {
+  background: #2980b9;
+}
+
+/* Cart Modal */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--secondary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.cart-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.close:hover {
+  color: var(--secondary-color);
+}
+
+/* Checkout Form */
+.checkout-form {
+  display: none;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+/* Form Elements */
+input, button {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .products {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .cart-content {
+    margin: 5% auto;
+    width: 95%;
+  }
+}
+
+/* Cart Items Styling */
+#cart-items {
+  margin: 1rem 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+#cart-total {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
